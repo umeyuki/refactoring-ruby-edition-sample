@@ -5,9 +5,18 @@ describe Customer do
   describe :statement do
     before :each do
       @customer = Customer.new('hiromitsu ito')
-      rental_1 = Rental.new(Movie.new('the walking dead',0),5)
-      rental_2 = Rental.new(Movie.new('breaking bad',1),2)
-      rental_3 = Rental.new(Movie.new('frozen',2),5)
+      movie_1  = Movie.new('the walking dead',Movie::REGULAR)
+      movie_1.price = RegularPrice.new
+      rental_1 = Rental.new(movie_1,5)
+
+      movie_2  = Movie.new('breaking bad',Movie::NEW_RELEASE)
+      movie_2.price = NewReleasePrice.new
+      rental_2 = Rental.new(movie_2, 2)
+
+      movie_3  = Movie.new('frozen',Movie::CHILDRENS)
+      movie_3.price = ChildrensPrice.new
+      rental_3 = Rental.new(movie_3, 5)
+      
       @customer.add_rental(rental_1)
       @customer.add_rental(rental_2)
       @customer.add_rental(rental_3)

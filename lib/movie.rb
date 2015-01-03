@@ -6,7 +6,8 @@ class Movie
 
   attr_reader :title
   attr_accessor :price_code
-
+  attr_writer :price
+  
   def price_code=(value)
     @price_code = value
     @price = case price_code
