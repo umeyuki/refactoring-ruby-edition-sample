@@ -34,8 +34,4 @@ class Customer
     result
   end
 
-  def amount_for(rental)
-    rental.charge
-  end
-  
 end
